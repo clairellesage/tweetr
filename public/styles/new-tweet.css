@@ -1,0 +1,36 @@
+.new-tweet {
+	background-color: #E8E8EE;
+	margin-left: 2em;
+	margin-right: 2em;
+	border-radius: 10px;
+	border-color: #D3D3D3;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.new-tweet h2 {
+	font-style: bold;
+	border-bottom: 1.5px solid black;
+	border-height: 10px;
+	padding-top: 8px;
+}
+
+.new-tweet .text {
+	width: 100%;
+	padding-left: 8px;
+
+}
+
+.button {
+ display: inline;
+}
+
+.counter {
+	display: inline;
+	float: right;
+	padding: 5px;
+	font-style: italic;
+	font-size: 12px;
+}
+
