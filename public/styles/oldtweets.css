@@ -5,7 +5,8 @@
 	padding-bottom: 1em;
 	padding-left: 2em;
 	padding-right: 2em;
-	opacity: 0.6;
+	opacity: 0.5;
+	transition: opacity 0.3s ease-in-out;
 }
 
 .oldtweet:hover{
