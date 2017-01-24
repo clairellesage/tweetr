@@ -16,13 +16,13 @@
 	padding-top: 8px;
 }
 
-.new-tweet .text {
+.new-tweet textarea {
 	width: 100%;
 	padding-left: 8px;
 
 }
 
-.button {
+.new-tweet button {
  display: inline;
 }
 
