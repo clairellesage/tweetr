@@ -1,0 +1,85 @@
+.oldtweet {
+	border-color: black;
+	height: 400px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	opacity: 0.6;
+}
+
+.oldtweet:hover{
+	opacity: 1;
+}
+
+.oldtweet article {
+	border: solid #D3D3D3;
+	border-width: 1px;
+	border-radius: 10px;
+}
+
+.oldtweet header{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background-color: #E8E8EE;
+	overflow: auto;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.oldtweet #name {
+	color: #37383C;
+	font-weight: bold;
+	font-size: 24px;
+	float: left;
+	margin-top: 0;
+	padding-top: 10px;
+}
+
+.oldtweet #username{
+	float: right;
+	font-size: 14px;
+	color: gray;
+	opacity: 0.5;
+}
+
+.oldtweet #tweetbody {
+	padding: 10px;
+	padding-bottom: 20px;
+	border-bottom: solid gray;
+	border-width: 1px;
+
+}
+
+.oldtweet footer {
+	border-top-color: #E8E8EE;
+	overflow: auto;
+	display: block;
+	padding-right: 20px;
+}
+
+.oldtweet #time {
+	font-size: 12px;
+	padding-left: 10px;
+	float: left;
+}
+
+.oldtweet #avatar{
+	margin: auto;
+	width: 60px;
+	size: 60px;
+	padding: 8px ;
+	display: inline-block;
+	float: left;
+	border-radius: 12px;
+}
+
+.oldtweet footer img {
+	float: right;
+	display: none;
+}
+
+.oldtweet:hover footer img {
+	display: block;
+	padding-top: 12px;
+}

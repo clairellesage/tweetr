@@ -2,8 +2,9 @@
 	background-color: #E8E8EE;
 	margin-left: 2em;
 	margin-right: 2em;
+	border: solid #D3D3D3;
+	border-width: 1px;
 	border-radius: 10px;
-	border-color: #D3D3D3;
 	padding-bottom: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -13,13 +14,13 @@
 	font-style: bold;
 	border-bottom: 1.5px solid black;
 	border-height: 10px;
+	margin-top: 0;
 	padding-top: 8px;
 }
 
 .new-tweet textarea {
 	width: 100%;
 	padding-left: 8px;
-
 }
 
 .new-tweet button {
@@ -34,3 +35,6 @@
 	font-size: 12px;
 }
 
+.negative {
+	color: red;
+}

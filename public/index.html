@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/oldtweets.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -41,6 +42,26 @@
             <span class="counter">140</span>
         </form>
       </section>
+        <section class="oldtweet">
+          <form action= "/tweets" method="GET">
+            <article>
+                <header>
+                  <img id="avatar" src="http://placehold.it/100x100">
+                  <p id ="name">Full Name</p>
+                  <p id ="username">@Username</p>
+                </header>
+              <body>
+                <p id="tweetbody">Tweet content</p>
+              </body>
+              <footer>
+                <p id ="time">10 days ago</p>
+                <img src ="http://placehold.it/10x10">
+                <img src ="http://placehold.it/10x10">
+                <img src ="http://placehold.it/10x10">
+              </footer>
+            </article>
+          </form>
+        </section>
     </main>
   </body>
 </html>
