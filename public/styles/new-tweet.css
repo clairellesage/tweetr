@@ -23,10 +23,6 @@
 	padding-left: 8px;
 }
 
-.new-tweet button {
- display: inline;
-}
-
 .counter {
 	display: inline;
 	float: right;

@@ -45,6 +45,8 @@ data =  [
   }
 ]
 
+
+//I don't need the escape funciton because it's protected from 
 function createHtml(tweet) {
   let html = `
   <section class="oldtweet">
@@ -64,10 +66,9 @@ function createHtml(tweet) {
            	<img src ="http://placehold.it/10x10">
            	<img src ="http://placehold.it/10x10">
           </footer>
-     </section>
     </article>
    </form>
-  </section>
+ </section>
   `
   return html;
 }
@@ -76,14 +77,38 @@ function createTweetElements(data) {
   return data.map(createHtml)
 }
 
-function renderTweet($tweets){
+function renderTweets($tweets){
   $tweets.forEach(tweet => {
-    $('.container').append(tweet)
-    console.log($('.container'))
+    $('.tweetlist').prepend(tweet)
   })
 }
 
+function createAndRender(tweets){
+var $tweets = createTweetElements(tweets);
+	renderTweets($tweets);
+}
+
 $(document).ready(function() {
-	var $tweets = createTweetElements(data);
-	renderTweet($tweets)
+
+	function fetchAndDisplayTweets() {
+		$.getJSON('/tweets')
+ 		.then((tweets) => {
+  		createAndRender(tweets)
+	});
+}
+
+fetchAndDisplayTweets()
+
+$('#tweetform').on('submit', function(ev) {
+  ev.preventDefault();
+
+	let formdata = $(this).serialize()
+     $.ajax('/tweets', {method: "post", data: formdata })
+    .then((result) => {
+        $(".tweetlist").empty()
+        fetchAndDisplayTweets()
+    })
+
+    .fail((error) => console.error(error))
+  });
 });
