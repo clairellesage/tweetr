@@ -1,6 +1,4 @@
 .oldtweet {
-	border-color: black;
-	height: 400px;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	padding-left: 2em;
@@ -28,7 +26,7 @@
 	padding-right: 5px;
 }
 
-.oldtweet #name {
+.oldtweet .name {
 	color: #37383C;
 	font-weight: bold;
 	font-size: 24px;
@@ -37,35 +35,36 @@
 	padding-top: 10px;
 }
 
-.oldtweet #username{
+.oldtweet .username{
 	float: right;
 	font-size: 14px;
 	color: gray;
-	opacity: 0.5;
+	padding-top: 10px;
 }
 
-.oldtweet #tweetbody {
-	padding: 10px;
-	padding-bottom: 20px;
+.oldtweet .tweetbody {
+	padding-left: 15px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	border-bottom: solid gray;
 	border-width: 1px;
 
 }
 
 .oldtweet footer {
-	border-top-color: #E8E8EE;
+	border-top-style: solid #DADADA;
 	overflow: auto;
 	display: block;
 	padding-right: 20px;
 }
 
-.oldtweet #time {
+.oldtweet .time {
 	font-size: 12px;
-	padding-left: 10px;
+	padding: 10px;
 	float: left;
 }
 
-.oldtweet #avatar{
+.oldtweet .avatar{
 	margin: auto;
 	width: 60px;
 	size: 60px;

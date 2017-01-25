@@ -47,23 +47,27 @@ data =  [
 
 function createHtml(tweet) {
   let html = `
+  <section class="oldtweet">
+    <form action= "/tweets" method="GET">
     <article>
         <header>
-          <img src=${tweet.user.avatars.small}>
-          <p id ="name"> ${tweet.user.name} </p>
-          <p id ="username"> ${tweet.user.handle} </p>
+          <img class="avatar" src=${tweet.user.avatars.small}>
+          <div class ="name"> ${tweet.user.name} </div>
+          <div class ="username"> ${tweet.user.handle} </div>
         </header>
           <body>
-          	<p id="tweetbody"> ${tweet.content.text} </p>
+          	<div class="tweetbody">${(tweet.content.text)} </div>
           </body>
           <footer> 
-           		<p id= "time">${data.created_at} </p>
+           	<div class= "time">${tweet.created_at} </div>
            	<img src ="http://placehold.it/10x10">
            	<img src ="http://placehold.it/10x10">
            	<img src ="http://placehold.it/10x10">
           </footer>
      </section>
     </article>
+   </form>
+  </section>
   `
   return html;
 }
