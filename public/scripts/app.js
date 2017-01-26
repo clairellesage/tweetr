@@ -1,4 +1,3 @@
-
 //I don't need the escape function because it's protected from XSS
 function createHtml(tweet) {
   let html = `
@@ -50,7 +49,7 @@ var $tweets = createTweetElements(tweets);
 
 //ON DOC READY
 $(document).ready(function() {
-
+  $('tweetlist').empty();
 	function fetchAndDisplayTweets() {
 		$.getJSON('/tweets')
  		.then((tweets) => {
@@ -60,8 +59,16 @@ $(document).ready(function() {
 
   fetchAndDisplayTweets()
 
+
   $('#tweetform').on('submit', function(ev) {
     ev.preventDefault();
+    if ($('.text').val() === "") {
+      alert("Did you forget to write something?")
+      return;
+    } else if ($('.text').val().length > 140) {
+      alert("Too long!");
+      return;
+    };
 
   	let formdata = $(this).serialize()
        $.ajax('/tweets', {method: "post", data: formdata })
@@ -73,36 +80,22 @@ $(document).ready(function() {
       .fail((error) => console.error(error))
   })
 
-  //GET
-  function loadTweets () {
-    $.ajax({
-        url : '/tweets',
-        method: "GET",
-        })
+  //this is how I'd write a GET function with AJAX
+//   function loadTweets () {
+//     $.ajax({
+//         url : '/tweets',
+//         method: "GET",
+//         })
 
-      .success((res) => {
-        createAndRender(res);
-        console.log('Success!');
-      })
+//       .success((res) => {
+//         createAndRender(res);
+//         console.log('Success!');
+//       })
 
-      .fail((error) => {
-        console.error(error)
-      })
-  }
-  loadTweets()
+//       .fail((error) => {
+//         console.error(error)
+//       })
+//   }
+//   loadTweets()
 });
-
-
-
-
-  //     $.ajax({
-  //       url: '/tweets',
-  //       method: 'GET',
-  //       success: function (morePostsHtml) {
-  //         renderTweets(request);
-  //         console.log('Success: ', morePostsHtml);
-  //   });
-  // });
-
-
 

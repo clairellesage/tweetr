@@ -5,7 +5,7 @@
 	background-color: #00a087;
 	color: #e8fdff;
 	padding-left: 2em;
-	padding-right: 2em;
+	padding-right: 1em;
 }
 
 #nav-bar .header {
@@ -19,4 +19,17 @@
 	height: 80px;
 	float: left;
 	padding-right: 10px;
+}
+
+
+#composebutton {
+	font-size: 20px;
+	background-color: white;
+	border: solid black 2px;
+	border-radius: 5px;
+	float: right;
+	margin-top: 8px;
+	margin-left: 10px;
+	padding: 16px;
+
 }

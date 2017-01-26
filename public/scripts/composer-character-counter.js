@@ -1,7 +1,7 @@
 $(document).ready(function() {
   	console.log("ready!");
   	let max = $('.counter').text();
-  	$('#text').bind("keyup", "keydown", function(event) {
+  	$('.text').bind("keyup", "keydown", function(event) {
   		let newVal = (max - this.value.length)
   		let result = $('.counter').text(newVal)
       $('.counter').removeClass("negative");
