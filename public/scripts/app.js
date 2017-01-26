@@ -49,7 +49,6 @@ var $tweets = createTweetElements(tweets);
 
 //ON DOC READY
 $(document).ready(function() {
-  $('tweetlist').empty();
 	function fetchAndDisplayTweets() {
 		$.getJSON('/tweets')
  		.then((tweets) => {
@@ -79,7 +78,7 @@ $(document).ready(function() {
 
       .fail((error) => console.error(error))
   })
-  
+
   $('#composebutton').click(function(ev) {
     $('.new-tweet').toggle();
     $('.text').focus();
