@@ -79,6 +79,12 @@ $(document).ready(function() {
 
       .fail((error) => console.error(error))
   })
+  
+  $('#composebutton').click(function(ev) {
+    $('.new-tweet').toggle();
+    $('.text').focus();
+  });
+
 
   //this is how I'd write a GET function with AJAX
 //   function loadTweets () {
