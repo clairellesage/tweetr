@@ -6,21 +6,20 @@ module.exports = function makeDataHelpers(db) {
 
     // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {
-        db.tweets.push(newTweet);
-        callback(null, true);
+        db.collection("tweets")
+          .insertOne(newTweet, callback);
     },
 
-
+    // Modify saveTweet to use Mongo (try Mongo's insertOne()
     // Get all tweets in `db`, sorted by newest first
 
     getTweets: function(callback) {
-      console.log("it's called")
     const sortNewestFirst = (a, b) => a.created_at - b.created_at;
     db.collection("tweets").find().toArray((err, tweets) => {
       if (err) {
         return callback(err);
       }
-      callback(null, db.tweets.sort(sortNewesterFirst));
+      callback(null, tweets.sort(sortNewestFirst));
     });
 
   // ==> Later it can be invoked. Remember even if you pass
