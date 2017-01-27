@@ -9,6 +9,7 @@
 
 .oldtweet:hover{
 	opacity: 1;
+/*	display: block;*/
 }
 
 .oldtweet article {
@@ -54,7 +55,6 @@
 .oldtweet footer {
 	border-top-style: solid #DADADA;
 	overflow: auto;
-	display: block;
 	padding-right: 20px;
 }
 
@@ -69,17 +69,21 @@
 	width: 60px;
 	size: 60px;
 	padding: 8px ;
-	display: inline-block;
 	float: left;
 	border-radius: 12px;
 }
 
-.oldtweet footer img {
-	float: right;
-	display: none;
+/*this isn't working*/
+.oldtweet .fa:hover {
+	display: block;
+	visibility: visible;
 }
 
-.oldtweet:hover footer img {
-	display: block;
-	padding-top: 12px;
+.oldtweet .fa {
+	float: right;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 2px;
+	visibility: none;
 }
+

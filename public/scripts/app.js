@@ -1,4 +1,30 @@
-//I don't need the escape function because it's protected from XSS
+function timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+        return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+}
+
+
+ //I don't need the escape function because it's protected from XSS
 function createHtml(tweet) {
   let html = `
   <section class="oldtweet">
@@ -10,13 +36,13 @@ function createHtml(tweet) {
           <div class ="username"> ${tweet.user.handle} </div>
         </header>
           <body>
-          	<div class="tweetbody">${(tweet.content.text)} </div>
+          	<div class="tweetbody">${(tweet.content.text)}</div>
           </body>
           <footer> 
-           	<div class= "time">${tweet.created_at} </div>
-           	<img src ="http://placehold.it/10x10">
-           	<img src ="http://placehold.it/10x10">
-           	<img src ="http://placehold.it/10x10">
+           	<div class= "time">${timeSince(tweet.created_at)} ago</div>
+              <i class="fa fa-flag-o" aria-hidden="true"></i>
+           	  <i class="fa fa-heart" aria-hidden="true"></i>
+           	  <i class="fa fa-retweet" aria-hidden="true"></i>
           </footer>
     </article>
    </form>
@@ -61,10 +87,10 @@ $(document).ready(function() {
 
   $('#tweetform').on('submit', function(ev) {
     ev.preventDefault();
-    if ($('.text').val() === "") {
+    if ($('.textarea').val() === "") {
       alert("Did you forget to write something?")
       return;
-    } else if ($('.text').val().length > 140) {
+    } else if ($('.textarea').val().length > 140) {
       alert("Too long!");
       return;
     };
@@ -80,9 +106,10 @@ $(document).ready(function() {
   })
 
   $('#composebutton').click(function(ev) {
-    $('.new-tweet').toggle();
-    $('.text').focus();
+    $('.new-tweet').slideToggle('200');
+    $('.textarea').focus();
   });
+
 
 
   //this is how I'd write a GET function with AJAX
