@@ -38,11 +38,13 @@ function createHtml(tweet) {
           <body>
           	<div class="tweetbody">${(tweet.content.text)}</div>
           </body>
-          <footer> 
+          <footer class="footer"> 
            	<div class= "time">${timeSince(tweet.created_at)} ago</div>
-              <i class="fa fa-flag-o" aria-hidden="true"></i>
-           	  <i class="fa fa-heart" aria-hidden="true"></i>
-           	  <i class="fa fa-retweet" aria-hidden="true"></i>
+            <div class= "icon">  
+              <img id="flag" src="http://placehold.it/12x12">
+           	  <img id="love" src="http://placehold.it/12x12">
+              <img id="retweet" src="http://placehold.it/12x12">
+            </div>
           </footer>
     </article>
    </form>
