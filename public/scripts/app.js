@@ -1,4 +1,7 @@
-function timeSince(date) {
+
+// NOTE: use function expressions over function declarations
+const timeSince = function(date) {
+    // NOTE: use const/let instead of `var`
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = Math.floor(seconds / 31536000);
     if (interval > 1) {
@@ -23,7 +26,6 @@ function timeSince(date) {
     return Math.floor(seconds) + " seconds";
 }
 
-
  //I don't need the escape function because it's protected from XSS
 function createHtml(tweet) {
   let html = `
@@ -36,13 +38,13 @@ function createHtml(tweet) {
           <div class ="username"> ${tweet.user.handle} </div>
         </header>
           <body>
-          	<div class="tweetbody">${(tweet.content.text)}</div>
+            <div class="tweetbody">${(tweet.content.text)}</div>
           </body>
-          <footer class="footer"> 
-           	<div class= "time">${timeSince(tweet.created_at)} ago</div>
-            <div class= "icon">  
+          <footer class="footer">
+             <div class= "time">${timeSince(tweet.created_at)} ago</div>
+            <div class= "icon">
               <img id="flag" src="http://placehold.it/12x12">
-           	  <img id="love" src="http://placehold.it/12x12">
+               <img id="love" src="http://placehold.it/12x12">
               <img id="retweet" src="http://placehold.it/12x12">
             </div>
           </footer>
@@ -61,7 +63,7 @@ function createTweetElements(data) {
 //each tweet is prepended to tweetlist
 function renderTweets($tweets){
   $tweets.forEach(tweet => {
-    $('.tweetlist').prepend(tweet)
+    $('.tweetlist').prepend(tweet);
   })
 }
 
@@ -70,18 +72,18 @@ function renderTweets($tweets){
 //now they're ready to be called together
 //calls two above functions
 function createAndRender(tweets){
-var $tweets = createTweetElements(tweets);
-	renderTweets($tweets);
+  var $tweets = createTweetElements(tweets);
+  renderTweets($tweets);
 }
 
 
 //ON DOC READY
 $(document).ready(function() {
-	function fetchAndDisplayTweets() {
-		$.getJSON('/tweets')
- 		.then((tweets) => {
-  		createAndRender(tweets)
-	 });
+  function fetchAndDisplayTweets() {
+    $.getJSON('/tweets')
+     .then((tweets) => {
+      createAndRender(tweets)
+   });
   }
 
   fetchAndDisplayTweets()
@@ -97,15 +99,19 @@ $(document).ready(function() {
       return;
     };
 
-  	let formdata = $(this).serialize()
-       $.ajax('/tweets', {method: "post", data: formdata })
+     const formdata = $(this).serialize()
+     $.ajax('/tweets', {method: "post", data: formdata})
       .then((result) => {
-          $(".tweetlist").empty()
-          fetchAndDisplayTweets()
+          // NOTE: instead of reloading the entire tweet list
+          //       on new tweet create succes, we will only
+          //       render the newly created tweet
+          // REMOVE:
+          //  $(".tweetlist").empty()
+          //  fetchAndDisplayTweets()
+          createAndRender([result]);
       })
-
-      .fail((error) => console.error(error))
-  })
+      .fail((error) => console.error(error));
+  });
 
   $('#composebutton').click(function(ev) {
     $('.new-tweet').slideToggle('200');
@@ -113,8 +119,11 @@ $(document).ready(function() {
   });
 
 
-
-  //this is how I'd write a GET function with AJAX
+// NOTE: always remove commented out code
+//       -- or ---
+//       place it with a note about why its here in the function
+//       you are referring to
+//this is how I'd write a GET function with AJAX
 //   function loadTweets () {
 //     $.ajax({
 //         url : '/tweets',
@@ -132,4 +141,3 @@ $(document).ready(function() {
 //   }
 //   loadTweets()
 });
-
